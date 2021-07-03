@@ -352,8 +352,12 @@ AprilTagDetectionArray TagDetector::detectTags (
     tag_detection.tag_center[0] = detection->c[0];
     tag_detection.tag_center[1] = detection->c[1];
 
+    tag_detection.pose.pose.covariance[0] = detection->c[0];
+    tag_detection.pose.pose.covariance[1] = detection->c[1];
+
     // tag corners in pixel coordinates
     for (size_t idx{}; idx < 8; idx++) {
+      tag_detection.pose.pose.covariance[idx + 2] = detection->p[idx / 2][idx % 2];
       tag_detection.tag_corners[idx] = detection->p[idx / 2][idx % 2];
     }
 
