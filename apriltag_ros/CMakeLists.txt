@@ -50,6 +50,7 @@ add_compile_options("-O3" "-funsafe-loop-optimizations" "-fsee" "-funroll-loops"
 
 add_message_files(
   FILES
+  Point2D.msg
   AprilTagDetection.msg
   AprilTagDetectionArray.msg
 )
